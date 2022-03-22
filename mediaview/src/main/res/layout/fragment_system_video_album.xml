@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_bottom_dialog"
+    android:divider="@drawable/shape_horizontal_divider"
+    android:showDividers="middle">
+
+    <com.j.mediaview.MyToolbar
+        android:id="@+id/mtb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/toolbar_size"
+        app:navigationIcon="@mipmap/icon_cross"
+        app:buttonGravity="center_vertical"
+        app:title="@string/choose_video_album"
+        app:titleTextColor="@color/black"
+        app:menu="@menu/menu_submit"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_album"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

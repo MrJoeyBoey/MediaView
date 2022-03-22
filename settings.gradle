@@ -1,0 +1,3 @@
+include ':mediaview'
+include ':app'
+rootProject.name = "MediaView"

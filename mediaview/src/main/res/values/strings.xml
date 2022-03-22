@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="choose_album">选择相册</string>
+    <string name="commit">提交</string>
+    <string name="image_view">image_view</string>
+    <string name="choose_video_album">选择视频册</string>
+    <string name="picture_take">拍摄照片</string>
+    <string name="picture_choose">选择照片</string>
+    <string name="video_take">拍摄视频</string>
+    <string name="video_choose">选择视频</string>
+    <string name="share">分享</string>
+    <string name="share_to_wechat">分享至微信</string>
+    <string name="share_to_qq">分享至QQ</string>
+    <string name="copy_url">复制链接</string>
+    <string name="save_to_local">保存至本地</string>
+</resources>
