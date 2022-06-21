@@ -7,17 +7,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
@@ -294,7 +288,6 @@ public class MediaView extends RecyclerView {
     public void setMedias(List<Media> medias){
         setMedias("", medias);
     }
-
     public void setMedias(String description, List<Media> medias){
         this.description = description;
         mediaAdapter.update(medias);
@@ -438,7 +431,7 @@ public class MediaView extends RecyclerView {
             switch (type) {
                 case DEFAULT :
                     if (position == 0){
-                        Glide.with(c).load(R.mipmap.icon_media_take).into(ivMedia);
+                        Glide.with(c).load(getMediaIcon()).into(ivMedia);
                         ivCross.setVisibility(GONE);
                         ivVideoFlag.setVisibility(GONE);
                     } else {
@@ -478,6 +471,19 @@ public class MediaView extends RecyclerView {
         @Override
         public int getItemCount() {
             return type == DEFAULT ? (medias == null ? 1 : medias.size() + 1) : (medias == null ? 0 : medias.size());
+        }
+
+        private int getMediaIcon(){
+            List<MediaMenu> mediaMenuList = Arrays.asList(mediaMenus);
+            if ((mediaMenuList.contains(MediaMenu.PICTURE_TAKE) || mediaMenuList.contains(MediaMenu.VIDEO_TAKE)) &&
+                    (mediaMenuList.contains(MediaMenu.PICTURE_CHOOSE) || mediaMenuList.contains(MediaMenu.VIDEO_CHOOSE))
+            ) {
+                return R.mipmap.icon_media_take_choose;
+            } else if (mediaMenuList.contains(MediaMenu.PICTURE_TAKE) || mediaMenuList.contains(MediaMenu.VIDEO_TAKE)) {
+                return R.mipmap.icon_media_take;
+            } else {
+                return R.mipmap.icon_media_choose;
+            }
         }
 
         public List<Media> getMedias() {
